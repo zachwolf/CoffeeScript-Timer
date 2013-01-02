@@ -1,14 +1,14 @@
 class Timer
-  constructor : (@tick) ->
+  constructor : (@tick, context) ->
     @interval   =   1000
     @enable     =   false
     @timerId    =   0
-    @tick
+    @context    =   context or @
 
   start       : ->
     @enable     =   true
     fn = =>
-      if @enable then @tick()
+      if @enable then @tick.apply(@context)
     @timerId    =   setInterval fn, @interval
 
   stop        : ->
