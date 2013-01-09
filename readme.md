@@ -14,3 +14,19 @@ A handy little snippet for OOJS timed events.
 Imagine it like this:
 
     fn.apply scope
+
+This is useful for when you're using the timer inside of another class and want access to it's data.
+
+Example:
+
+    class Slider
+		  constructor : ->
+		    @localVar = "hey ya'll"
+		    @tick = new Timer ->
+		                console.log @localVar # "hey ya'll"
+		              , @
+		    @tock = new Timer ->
+		                console.log @localVar # undefined
+
+		    @tick.start()
+		    @tock.start()
