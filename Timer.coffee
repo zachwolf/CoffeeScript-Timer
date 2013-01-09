@@ -14,6 +14,3 @@ class Timer
   stop        : ->
     @enable     =   false
     clearInterval @timerId
-
-timer = new Timer ->
-  console.log "tick"
