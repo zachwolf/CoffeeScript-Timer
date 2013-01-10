@@ -1,9 +1,8 @@
 class Timer
-  constructor : (@tick, context) ->
+  constructor : (@tick, @context = @) ->
     @interval   =   1000
     @enable     =   false
     @timerId    =   0
-    @context    =   context or @
 
   start       : ->
     @enable     =   true
